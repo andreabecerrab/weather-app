@@ -3,6 +3,9 @@ const express = require('express');
 const hbs = require('hbs');
 
 const app = express();
+const port = process.env.PORT || 3000
+
+//paths for config
 const publicDir = path.join(__dirname, '../public');
 const viewPaths = path.join(__dirname, '../templates/views');
 const partialPaths = path.join(__dirname, '../templates/partials');
@@ -65,6 +68,6 @@ app.get('*', (req, res) => {
   res.render('404');
 });
 
-app.listen(3000, () => {
-  console.log('Listening on port 3000');
+app.listen(port, () => {
+  console.log('Listening on!');
 });

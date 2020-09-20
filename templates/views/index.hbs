@@ -1,48 +1,51 @@
 <!DOCTYPE html>
 <html>
 
-
-
 <body>
     {{>header}}
-    <div class="align-center">
-        <form>
-            <input placeholder="Location">
-            <button>
-                Search
-            </button>
-        </form>
-    </div>
 
-    <div class="align-center weather-body">
-
-        <div class="card card1 align-center" id="message1"></div>
-
-        <div>
-            <div class="card card2 align-center temp">
-                <img src="../../img/weather.png">
-                <p>Temperature</p>
-                <p id="message2"></p>
+    <div class="align-center margin-content">
+        <div class="row">
+            <span class="material-icons" style="font-size: 65px; color:black">
+                crop_square
+            </span>
+            <h1>WeatherApp</h1>
+        </div>
+        <h3>"Node practice weather application using mapbox and darksky API"</h3>
+        <div class="margin-content">
+            <form>
+                <input placeholder="Location">
+                <button>
+                    Search
+                </button>
+            </form>
+        </div>
+        <div class="card">
+            <div class="row">
+                <span class="material-icons">
+                    place
+                </span>
+                <p id="message1">Place</p>
             </div>
-            <div class="card card2 align-center rain">
-                <img src="../../img/rain.png">
-                <p>Rain Prob.</p>
-                <p id="message3"></p>
+            <div class="row">
+                <span class="material-icons">
+                    arrow_forward_ios
+                </span>
+                <p id="message2">Temperature</p>
+            </div>
+            <div class="row">
+                <span class="material-icons">
+                    priority_high
+                </span>
+                <p id="message3">Summary</p>
             </div>
         </div>
-
-
     </div>
+    <div class="footer">
 
-
-
-
-
-
-
+        <p class="andy">By<a href="https://github.com/andreabecerrab">Andrea B.</a></p>
+    </div>
     <p id="message2"></p>
-
-
     <script src="/js/app.js"></script>
 </body>
 

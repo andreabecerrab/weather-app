@@ -40,21 +40,21 @@ app.get("/weather", (req, res) => {
     return res.send({ error: "No addres sended" });
   }
 
-  // geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
-  //   if (error) {
-  //     return res.send({ error });
-  //   }
-  //   forecast(latitude, longitude, (error, data2) => {
-  //     if (error) {
-  //       return res.send({ error });
-  //     }
-  //     res.send({
-  //       forecast: data2,
-  //       location: location,
-  //       address: req.query.address,
-  //     });
-  //   });
-  // });
+  geocode(req.query.address, (error, { latitude, longitude, location }) => {
+    if (error) {
+      return res.send({ error });
+    }
+    forecast(latitude, longitude, (error, data2) => {
+      if (error) {
+        return res.send({ error });
+      }
+      res.send({
+        forecast: data2,
+        location: location,
+        address: req.query.address,
+      });
+    });
+  });
 });
 
 app.get("/help/*", (req, res) => {

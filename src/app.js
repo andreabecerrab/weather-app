@@ -11,8 +11,8 @@ const viewPaths = path.join(__dirname, "../templates/views");
 const partialPaths = path.join(__dirname, "../templates/partials");
 
 //geocode and forecast
-const geocode = require("./utils/geocode");
-const forecast = require("./utils/forecast");
+// const geocode = require("./utils/geocode");
+// const forecast = require("./utils/forecast");
 
 //setup handlerbars engine views directory
 app.set("view engine", "hbs");
@@ -35,27 +35,27 @@ app.get("/about", (req, res) => {
   });
 });
 
-app.get("/weather", (req, res) => {
-  if (!req.query.address) {
-    return res.send({ error: "No addres sended" });
-  }
+// app.get("/weather", (req, res) => {
+//   if (!req.query.address) {
+//     return res.send({ error: "No addres sended" });
+//   }
 
-  geocode(req.query.address, (error, { latitude, longitude, location }) => {
-    if (error) {
-      return res.send({ error });
-    }
-    forecast(latitude, longitude, (error, data2) => {
-      if (error) {
-        return res.send({ error });
-      }
-      res.send({
-        forecast: data2,
-        location: location,
-        address: req.query.address,
-      });
-    });
-  });
-});
+//   geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
+//     if (error) {
+//       return res.send({ error });
+//     }
+//     forecast(latitude, longitude, (error, data2) => {
+//       if (error) {
+//         return res.send({ error });
+//       }
+//       res.send({
+//         forecast: data2,
+//         location: location,
+//         address: req.query.address,
+//       });
+//     });
+//   });
+// });
 
 app.get("/help/*", (req, res) => {
   res.render("noexists");
